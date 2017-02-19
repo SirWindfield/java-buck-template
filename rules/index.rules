@@ -1,0 +1,2 @@
+include_defs('//rules/maven.rules')
+include_defs('//rules/module.rules')

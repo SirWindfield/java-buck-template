@@ -1,13 +1,21 @@
 [buildfile]
-  includes = //rules/module.rules
+  includes = //rules/index.rules
 
 [java]
   source_level = 8
   target_level = 8
   src_roots = java, resources, src
 
+[maven_repositories]
+  central = https://repo1.maven.org/maven2
+
 [cache]
   mode = dir
+
+[project]
+  ide = intellij
+  glob_handler = python
+  ignore = .git
 
 [alias]
   api = //api:api

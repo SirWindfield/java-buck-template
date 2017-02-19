@@ -1,0 +1,8 @@
+# buck specific stuff
+buck-out/
+.buckd/
+
+# temp/os specific stuff
+.DS_STORE
+.Trash
+

@@ -22,9 +22,9 @@ def module_config(
     java_test(
         name = name + '-test',
         srcs = test_srcs,
-        deps [
+        deps = [
             ':' + name,
-            '//lib/:junit'
+            '//lib:junit'
         ] + test_deps + deps
     )
 

@@ -1,5 +1,10 @@
-java_library(
-    name = 'framework'
+java_binary(
+    name = 'framework',
+    main_class = 'Implementation',
+    deps = [
+        '//api:api',
+        '//core:core'
+    ]
 )
 
 project_config(
