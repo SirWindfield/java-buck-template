@@ -20,7 +20,7 @@ def module_config(
 
     # define java test
     java_test(
-        name = name + '-test',
+        name = name + '-tests',
         srcs = test_srcs,
         deps = [
             ':' + name,
