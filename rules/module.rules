@@ -1,0 +1,37 @@
+def module_config(
+    name,
+    deps = [],
+    test_deps = [],
+    srcs = None,
+    test_srcs = None,
+    visibility = ['PUBLIC']):
+
+    # define srcs if not already done by using default maven directories
+    srcs = glob(['src/main/java/**/*.java', 'src/main/resources/**/*.*']) if srcs is None else srcs
+    test_srcs = glob(['src/test/java/**/*.java', 'src/test/resources/**/*.*']) if test_srcs is None else test_srcs
+
+    # define java library
+    java_library(
+        name = name,
+        srcs = srcs,
+        visibility = visibility,
+        deps = [] + deps
+    )
+
+    # define java test
+    java_test(
+        name = name + '-test',
+        srcs = test_srcs,
+        deps [
+            ':' + name,
+            '//lib/:junit'
+        ] + test_deps + deps
+    )
+
+    # define project
+    project_config(
+        src_target = ':' + name,
+        src_roots = ['src/main/java', 'src/main/resources'],
+        test_target = ':' + name + '-tests',
+        test_roots = ['src/test/java', 'src/test/resources']
+    )

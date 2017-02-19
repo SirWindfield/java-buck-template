@@ -1,0 +1,14 @@
+[buildfile]
+  includes = //rules/module.rules
+
+[java]
+  source_level = 8
+  target_level = 8
+  src_roots = java, resources, src
+
+[cache]
+  mode = dir
+
+[alias]
+  api = //api:api
+  core = //core:core
